@@ -59,6 +59,7 @@ function Add({setAddVideoResponse}) {
        setAddVideoResponse(result.data)
        console.log(result);
        if(result.status>=200 && result.status<300){
+        setVideoDetails({caption:"",imageUrl:"",youTubeUrl:""})
         toast.success(`${result.data.caption}  added to your collection`)
         // setVideos([...videos, result.data]);
         handleClose()
@@ -146,7 +147,6 @@ function Add({setAddVideoResponse}) {
       </Modal>
 
 
-       <ToastContainer position="top-right" autoClose={5000} theme='colored'/> 
     </>
   )
 }

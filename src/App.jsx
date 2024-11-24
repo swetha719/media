@@ -6,14 +6,15 @@ import Home from './pages/Home'
 import { Routes,Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-
+import { ToastContainer } from 'react-bootstrap'
 
 function App() {
   
 
   return (
     <>
-   
+          <ToastContainer position="top-right" autoClose={5000} theme='colored'/> 
+
     <Header/>
       <Routes>
         <Route element={<Landing/>} path='/' />

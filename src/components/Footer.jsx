@@ -52,7 +52,7 @@ function Footer() {
           </div>
         </div>
   
-        <p className='text-center '>Copyright @ july 2024 Batch.,Media Player,Built with react</p>
+        <p className='text-center ' style={{color:'white'}}>Copyright @ july 2024 Batch.,Media Player,Built with react</p>
   
       </div>
    </div>

@@ -1,13 +1,12 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { deleteVideo, watchHistory } from '../services/allAPI';
 
 
 
-function VideoCard({displayData,setDeleteVideoResponse}) {
+function VideoCard({displayData,setDeleteVideoResponse,insideCategory}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -47,14 +46,27 @@ function VideoCard({displayData,setDeleteVideoResponse}) {
 
   }
 
+  // drag image
+  const dragStarted=(e,videoId)=>{
+    console.log(videoId);
+    console.log(`videocard dragged with id ${videoId}`);
+    e.dataTransfer.setData("videoId",videoId)
+    
+    
+  }
+
   return (
     <>
-      <Card className='m-3 p-3 bg-white' style={{height:'300px',width:'200px'}}>
+      <Card draggable={true} onDragStart={(e)=>dragStarted(e,displayData?.id)} className='m-3 bg-warning' style={{height:'300px',width:'200px'}}>
       <Card.Img onClick={handleShow} style={{height:'200px'}} variant="top" src={displayData?.imageUrl} />
       <Card.Body className='d-flex align-items-center justify-content-between'>
 
         <h6  style={{color:'black'}}>{displayData?.caption}</h6>
-        <button onClick={()=>handleRemoveVideo(displayData?.id)} className='btn'> <i className="fa-solid fa-trash" style={{color:'red',fontSize:'20px'}}></i></button>
+        {
+          !insideCategory &&
+          <button onClick={()=>handleRemoveVideo(displayData?.id)} className='btn'> <i className="fa-solid fa-trash" style={{color:'red',fontSize:'20px'}}></i></button>
+
+        }
         
       </Card.Body>
     </Card>

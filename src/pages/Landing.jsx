@@ -12,7 +12,7 @@ function Landing() {
     <>
    <div className='container landingsection '>
       <div className='row align-item-center my-5'>
-        <div className="col-lg-5">
+        <div className="col-lg-5" style={{marginTop:'80px'}}>
           <h3  >Welcome to <span  className='heading text-warning'>Media Player</span></h3>
           <p style={{textAlign:'justify'}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab eum, deleniti officiis odio quis libero natus suscipit molestiae iste similique itaque expedita temporibus quisquam aspernatur a repellat nihil facere nobis.</p>
           <Link to={'/home'} className='btn btn-warning mt-4'>Get Started</Link>
